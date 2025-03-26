@@ -7,7 +7,11 @@ app = Flask(__name__)
 CORS(app)
 
 # Use environment variable for API key
-OPENAI_API_KEY = os.getenv("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")
+# Load environment variables from key.env
+load_dotenv("key.env")
+
+# Read API key securely
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_URL = "https://api.openai.com/v1/chat/completions"
 
 def analyze_code(code):
